@@ -1,42 +1,10 @@
-
-    .container {
-        padding: 20px 10px;
-        gap: 20px;
-        height: auto;
-        min-width: 95vw;
-        border-radius: 5px;
-    }
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 10px;
-    }
-    .game {
-        width: 95vw;
-        height: auto;
-        gap: 6px;
-    }
-    .item {
-        width: 22vw;
-        height: 22vw;
-        font-size: 1.7rem;
-        min-width: 60px;
-        min-height: 60px;
-        max-width: 80px;
-        max-height: 80px;
-    }
-    .reset-btn {
-        padding: 10px 12px;
-        font-size: 1rem;
-    }
-}
-
+/* Base styles: use ONLY relative units where possible */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: monospace;
 }
-
 body {
     background-color: rgba(14, 87, 14, 0.829);
     color: white;
@@ -44,7 +12,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
 }
 .container {
     text-align: center;
@@ -54,52 +21,38 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    padding: 40px 60px;
-    height: 80vh;
-
+    gap: 2rem;
+    padding: 2.5rem 3.5rem;
+    height: auto;
+    min-width: 320px;
+    max-width: 100vw;
 }
 h2 {
-    font-size: 4rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
     color: white;
 }
-
- .game {
-    width: 440px;
-    height: 440px;
+.game {
+    width: 420px;
+    max-width: 95vw;
+    height: auto;
+    min-width: 220px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    transform-style: preserve-3d;
+    gap: 0.6rem;
     perspective: 500px;
-
-    
+    transform-style: preserve-3d;
 }
-
-.reset-btn {
-    padding: 15px 20px;
-    background-color: rgb(85, 212, 85);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.reset-btn:focus {
-    background-color: rgb(85, 212, 85);
-    color: white;
-
-}
-
 .item {
     position: relative;
-    width: 100px;
-    height: 100px;
-    font-size: 50px;
+    width: 90px;
+    height: 90px;
+    max-width: 22vw;
+    max-height: 22vw;
+    font-size: 2.5rem;
+    min-width: 60px;
+    min-height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,7 +61,6 @@ h2 {
     cursor: pointer;
     transition: 0.3s;
 }
-
 .item::after {
     content: "";
     position: absolute;
@@ -117,18 +69,88 @@ h2 {
     transition: 0.25s;
     transform: rotateY(0deg);
     backface-visibility: hidden;
-
-
 }
-
 .item.boxopen {
     transform: rotateY(0deg);
-
+}
+.boxopen::after,
+.boxmatch::after {
+    transform: rotateY(180deg);
+}
+.reset-btn {
+    padding: 1rem 1.5rem;
+    background-color: rgb(85, 212, 85);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.reset-btn:focus {
+    background-color: rgb(65, 170, 65);
 }
 
-.boxopen::after,
-.boxmatch::after
- {
-    transform: rotateY(180deg);
+/* Responsive for Tablets/Laptops */
+@media (max-width: 900px) {
+    .container {
+        padding: 2rem 1rem;
+        gap: 1.2rem;
+        border-radius: 8px;
+        min-width: 94vw;
+    }
+    h2 {
+        font-size: 2.1rem;
+    }
+    .game {
+        width: 95vw;
+        gap: 1vw;
+    }
+    .item {
+        width: 19vw;
+        height: 19vw;
+        font-size: 2.2rem;
+        min-width: 50px;
+        min-height: 50px;
+        max-width: 90px;
+        max-height: 90px;
+    }
+}
 
+/* Responsive for Mobiles */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem 0.5rem;
+        gap: 1rem;
+        border-radius: 5px;
+        min-width: 98vw;
+    }
+    h2 {
+        font-size: 1.7rem;
+    }
+    .game {
+        width: 99vw;
+        gap: 0.7vw;
+        min-width: unset;
+    }
+    .item {
+        width: 27vw;
+        height: 27vw;
+        font-size: 1.2rem;
+        min-width: 30px;
+        min-height: 30px;
+        max-width: 70px;
+        max-height: 70px;
+    }
+    .reset-btn {
+        padding: 0.8rem 0.9rem;
+        font-size: 1rem;
+    }
+}
+
+/* Even smaller phones */
+@media (max-width: 400px) {
+    h2 { font-size: 1.1rem; }
+    .container { padding: 0.7rem 0.2rem; }
+    .item { font-size: 1rem; }
 }
