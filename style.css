@@ -1,3 +1,35 @@
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 10px;
+        gap: 20px;
+        height: auto;
+        min-width: 95vw;
+        border-radius: 5px;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .game {
+        width: 95vw;
+        height: auto;
+        gap: 6px;
+    }
+    .item {
+        width: 22vw;
+        height: 22vw;
+        font-size: 1.7rem;
+        min-width: 60px;
+        min-height: 60px;
+        max-width: 80px;
+        max-height: 80px;
+    }
+    .reset-btn {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
